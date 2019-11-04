@@ -32,21 +32,38 @@ socket.on('user-disconnected-fs', name => {
 
 function appendInfo(info){
     const newInfo = document.createElement('h5');
-    newInfo.innerText = info;
+    newInfo.innerText = info + " at " + getFormattedCurrentTime();
     messageContainer.appendChild(newInfo);
 }
 
 function appendMessage(message, isMine = false){
     const singleMessageContainer = document.createElement('div');
     const newMessage = document.createElement('div');
-    const toolTip = document.createElement('span');
-    toolTip.innerText = "dsfdsf";
-    newMessage.appendChild(toolTip);
     singleMessageContainer.appendChild(newMessage);
+
+    const dateFormatted = getFormattedCurrentTime();
+    let tooltipSpan = "<span>"+ dateFormatted + "</span>";
+
     if(isMine){
         singleMessageContainer.className = "my-message";
+        tooltipSpan = "<span class='my-tooltip'>"+ dateFormatted + "</span>";
     }
+
     newMessage.innerText = message;
+    newMessage.innerHTML += tooltipSpan;
     messageContainer.appendChild(singleMessageContainer);
     messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+function getFormattedCurrentTime(){
+    const date = new Date();
+
+    let currentHours = date.getHours();
+    currentHours = ("0" + currentHours).slice(-2);
+    
+    let currentMinutes = date.getMinutes();
+    currentMinutes = ("0" + currentMinutes).slice(-2);
+
+    return currentHours + ":" + currentMinutes;
+
 }

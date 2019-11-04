@@ -46,8 +46,9 @@ body {
 }
 
 #main-container #message-container div div {
+  position: relative;
   display: inline-block;
-  background-color: #8d8cc7;
+  background-color: rgba(115, 149, 174, 0.649);
   padding: 7px;
   max-width: 50%;
   word-break: break-all;
@@ -56,16 +57,46 @@ body {
   margin-right: 5px;
 }
 
+#main-container #message-container div div span {
+  visibility: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  width: 50px;
+  height: 20px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  font-size: 15px;
+  left: calc(100% + 5px);
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+}
+
+#main-container #message-container div div span.my-tooltip {
+  left: auto;
+  right: calc(100% + 5px);
+}
+
+#main-container #message-container div div:hover span {
+  visibility: visible;
+}
+
 #main-container #message-container div.my-message {
   text-align: right;
 }
 
 #main-container #message-container div.my-message div {
-  background-color: #c46565;
+  background-color: #b1a296;
 }
 
 #main-container #message-container h5 {
-  margin-top: 2px;
+  margin-top: 5px;
   margin-bottom: 0px;
   text-align: center;
 }
@@ -83,12 +114,19 @@ body {
   width: 100%;
   padding: 0px;
   padding-left: 5px;
+  padding-right: 50px;
   margin: 0px;
   height: 30px;
   border-radius: 10px 10px 10px 10px;
 }
 
+#main-container #send-container input:focus {
+  outline: none;
+}
+
 #main-container #send-container button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #f3f3f3;
   border: 1px solid black;
   border-radius: 10px 10px 10px 10px;
@@ -100,5 +138,6 @@ body {
   right: 0;
   top: 0;
   height: 30px;
+  width: 50px;
 }
 /*# sourceMappingURL=style.css.map */

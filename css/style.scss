@@ -1,4 +1,5 @@
 $input-height: 30px;
+$input-width: 50px;
 
 html {
     height: 100%;
@@ -40,27 +41,58 @@ body {
             margin-top: 5px;
 
             div {
+                position: relative;
                 display: inline-block;
-                background-color: #8d8cc7;
+                background-color: rgba(115, 149, 174, 0.649);
                 padding: 7px;
                 max-width: 50%;
                 word-break: break-all;
                 margin-top: 0px;
                 margin-left: 5px;
                 margin-right: 5px;
-            }
-        }
 
-        div.my-message {
-            text-align: right;
+                span {
+                    visibility: hidden;
+                    box-sizing: border-box;
+                    background-color: black;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 7px;
+                    width: 50px;
+                    height: 20px;
+                    padding-top: 2px;
+                    padding-bottom: 3px;
+                    font-size: 15px;
+                    left: calc(100% + 5px);
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    position: absolute;
+                    z-index: 1;
 
-            div {
-                background-color: rgb(196, 101, 101);
+                    &.my-tooltip {
+                        left: auto;
+                        right: calc(100% + 5px);
+                    }
+                }
+
+                &:hover span {
+                    visibility: visible;
+                }
             }
+
+            &.my-message {
+                text-align: right;
+
+                div {
+                    background-color: #b1a296;
+                }
+            }
+
         }
 
         h5 {
-            margin-top: 2px;
+            margin-top: 5px;
             margin-bottom: 0px;
             text-align: center;
         }
@@ -77,12 +109,18 @@ body {
             width: 100%;
             padding: 0px;
             padding-left: 5px;
+            padding-right: $input-width;
             margin: 0px;
             height: $input-height;
             border-radius: 10px 10px 10px 10px;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         button {
+            box-sizing: border-box;
             background-color: #f3f3f3;
             border: 1px solid black;
             border-radius: 10px 10px 10px 10px;
@@ -95,6 +133,7 @@ body {
             right: 0;
             top: 0;
             height: $input-height;
+            width: $input-width;
         }
     }
 }
