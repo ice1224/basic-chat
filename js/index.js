@@ -4,9 +4,13 @@ const messageInput = document.getElementById('message-input');
 const messageContainer = document.getElementById('message-container');
 
 messageInput.focus();
-messageContainer.style.paddingRight = messageContainer.offsetWidth - messageContainer.clientWidth;
 
-//const name = prompt('Enter your name:') || 'Anon';
+//handling scrollbar
+let scrollbarWidth = messageContainer.offsetWidth - messageContainer.clientWidth;
+console.log(scrollbarWidth);
+messageContainer.style.paddingRight = scrollbarWidth  + "px";
+
+const name = prompt('Enter your name:') || 'Anon';
 appendInfo('You joined');
 socket.emit('new-user-ts', name);
 
@@ -49,6 +53,7 @@ function appendMessage(message, isMine = false){
         tooltipSpan = "<span class='my-tooltip'>"+ dateFormatted + "</span>";
     }
 
+    singleMessageContainer.style.marginRight = (-scrollbarWidth) + "px";
     newMessage.innerText = message;
     newMessage.innerHTML += tooltipSpan;
     messageContainer.appendChild(singleMessageContainer);
