@@ -1,10 +1,4 @@
-//github pages version (static) - causes errors but displays few examples of infos and messages, 
-//to fix before using/hosting dynamically: remove try/catch, remove lines 17-23, uncomment lines 26-28
-//to make working on mobile on localhost, change localhost to wifi ip address line below and in index.html 
-try{const socket = io('http://localhost:3000');}
-catch(e){
-    console.log(e);
-}
+const socket = io('http://localhost:3000');
 const messageForm = document.getElementById('send-container');
 const messageInput = document.getElementById('message-input');
 const messageContainer = document.getElementById('message-container');
@@ -14,19 +8,10 @@ messageInput.focus();
 let scrollbarWidth = messageContainer.offsetWidth - messageContainer.clientWidth;
 messageContainer.style.paddingRight = scrollbarWidth  + "px";
 
-alert(`This is static version of website for github pages hosting. It means you cannot interact with the server, thus sending messages is not possible. Nonetheless script was changed to display few examples of infos and messages to present the design and static features like showing message time on click/hover or scrolling the message container.`);
-appendInfo('You');
-appendInfo('John');
-appendMessage('Hello!', true);
-appendMessage('Hi!');
-appendMessage("What's up?", true);
-appendMessage("It's all good man");
-
-/*
 const name = prompt('Enter your name:') || 'Anon';
 appendInfo('You joined');
 socket.emit('new-user-ts', name);
-*/
+
 messageForm.addEventListener('submit', e => {
     e.preventDefault();
     const message = messageInput.value;
