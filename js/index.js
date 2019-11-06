@@ -17,10 +17,10 @@ messageContainer.style.paddingRight = scrollbarWidth  + "px";
 alert(`This is static version of website for github pages hosting. It means you cannot interact with the server, thus sending messages is not possible. Nonetheless script was changed to display few examples of infos and messages to present the design and static features like showing message time on click/hover or scrolling the message container.`);
 appendInfo('You');
 appendInfo('John');
-appendMessage('Hello!', true);
-appendMessage('Hi!');
-appendMessage("What's up?", true);
-appendMessage("It's all good man");
+appendMessage('You: Hello!', true);
+appendMessage('John: Hi!');
+appendMessage("You: What's up?", true);
+appendMessage("John: It's all good man");
 
 /*
 const name = prompt('Enter your name:') || 'Anon';
